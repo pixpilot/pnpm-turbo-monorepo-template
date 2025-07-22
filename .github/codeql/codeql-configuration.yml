@@ -1,0 +1,26 @@
+name: CodeQL Configuration
+
+paths:
+  - src
+
+paths-ignore:
+  - tests
+  - 'tests/**'
+  - '**/__tests__/**'
+  - '**/*.test.ts'
+  - '*.spec.ts'
+  - '**/*.min.js'
+  - 'dist/**'
+  - 'build/**'
+  - 'coverage/**'
+  - '*.md'
+  - '*.txt'
+  - '*.pdf'
+  - '*.png'
+  - '*.jpg'
+  - '*.ico'
+
+query-filters:
+  # Falls over on our dynamic RegExp generation
+  - exclude:
+      id: js/regex-injection

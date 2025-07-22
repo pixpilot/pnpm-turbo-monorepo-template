@@ -1,0 +1,62 @@
+# .github/workflows/release.yml
+
+name: Release Package
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - next
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Run CI Checks
+    # Supported: Calling a reusable workflow in the same repo is valid per https://docs.github.com/en/actions/how-tos/sharing-automations/reusing-workflows#calling-a-reusable-workflow
+    uses: ./.github/workflows/ci.yml
+
+  # ======================================================================
+  # If your branch PR is protected, remove the jobs below and use this one instead.
+  # Additional setup:
+  # - See the following gist for detailed instructions:
+  #   https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc
+  # - You must set up a GitHub App and add the following repository secrets:
+  #     RELEASER_ID:            The App ID of your GitHub App
+  #     RELEASER_PRIVATE_KEY:   The private key for your GitHub App
+  #     NPM_TOKEN:              Your npm publish token
+  # ======================================================================
+  # release-protected:
+  #   uses: pixpilot/dev-config/.github/workflows/semantic-release-protected-branch.yml@main
+  #   needs: ci
+  #   secrets:
+  #     RELEASER_ID: ${{ secrets.RELEASER_ID }}
+  #     RELEASER_PRIVATE_KEY: ${{ secrets.RELEASER_PRIVATE_KEY }}
+  #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  release:
+    if: ${{ !endsWith(github.repository, 'pnpm-turbo-monorepo-template') }}
+    name: Create Release and Publish
+    runs-on: ubuntu-latest
+    needs: ci
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Release with semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm run release

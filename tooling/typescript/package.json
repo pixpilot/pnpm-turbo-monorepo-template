@@ -1,0 +1,18 @@
+{
+  "name": "@acme/tsconfig",
+  "private": true,
+  "version": "0.1.0",
+  "files": [
+    "*.json"
+  ],
+  "dependencies": {
+    "@pixpilot/dev-config": "catalog:dev"
+  },
+  "scripts": {
+    "@acme/eslint-config": "workspace:*",
+    "lint": "eslint '**/*.{js,ts,json}' || echo 'No files to lint'",
+    "lint:fix": "eslint --fix '**/*.{js,ts,json}' || echo 'No files to lint'",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  }
+}

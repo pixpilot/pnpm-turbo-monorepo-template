@@ -1,0 +1,56 @@
+{
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "fileGenerator.configs": [
+    {
+      "tasks": [
+        //! Test current file (node)
+        {
+          "terminalInstanceType": "label",
+          "runTaskOnFileCreation": false,
+          "label": "Test current file (node)",
+          "command": "npm test",
+          "checkIfArgPathExist": ["--config"],
+          "args": ["${relativeTargetFile}", "--config=${workspaceFolder}/jest.config.node.js"]
+        },
+        {
+          "runTaskOnFileCreation": true,
+          "label": "Watch current file (node)",
+          "command": "npm test",
+          "checkIfArgPathExist": ["--config"],
+          "userInputPrompt": [
+            [
+              {
+                "label": "--coverage"
+              }
+            ]
+          ],
+          "args": [
+            "--watch",
+            "${relativeTargetFile}",
+            "--config=${workspaceFolder}/jest.config.node.js"
+          ]
+        },
+        {
+          "terminalInstanceType": "label",
+          "runTaskOnFileCreation": false,
+          "label": "Test directory (node)",
+          "command": "npm test",
+          "shouldSwitchToFile": false,
+          "checkIfArgPathExist": ["--config"],
+          "args": ["${relativeFileDirname}", "--config=${workspaceFolder}/jest.config.node.js"]
+        }
+      ],
+      "label": "Jest Tests",
+      "fileSuffixType": "extend extension",
+      "filesSuffix": "test",
+      "directoryName": "tests",
+      "supportedExtension": ["ts", "tsx", "js", "jsx"],
+      "defaultLocationForFiles": "project root",
+      "description": "Jest Tests Creator"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@acme/vitest-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "@vitest/coverage-v8": "catalog:dev",
+    "vitest": "catalog:dev"
+  },
+  "prettier": "@acme/prettier-config"
+}

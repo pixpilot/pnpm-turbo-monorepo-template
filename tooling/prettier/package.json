@@ -1,0 +1,27 @@
+{
+  "name": "@acme/prettier-config",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
+    "format:fix": "prettier --write ."
+  },
+  "dependencies": {
+    "prettier": "catalog:dev"
+  },
+  "devDependencies": {
+    "@acme/tsconfig": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "typescript": "catalog:dev"
+  },
+  "prettier": "@acme/prettier-config"
+}
