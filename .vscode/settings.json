@@ -12,7 +12,7 @@
           "terminalInstanceType": "label",
           "runTaskOnFileCreation": false,
           "label": "Test current file (node)",
-          "command": "npm test",
+          "command": "pnpm test",
           "checkIfArgPathExist": ["--config"],
           "args": [
             "${relativeTargetFile}",
@@ -22,7 +22,7 @@
         {
           "runTaskOnFileCreation": true,
           "label": "Watch current file (node)",
-          "command": "npm test",
+          "command": "pnpm test",
           "checkIfArgPathExist": ["--config"],
           "userInputPrompt": [
             [
@@ -41,7 +41,7 @@
           "terminalInstanceType": "label",
           "runTaskOnFileCreation": false,
           "label": "Test directory (node)",
-          "command": "npm test",
+          "command": "pnpm test",
           "shouldSwitchToFile": false,
           "checkIfArgPathExist": ["--config"],
           "args": [

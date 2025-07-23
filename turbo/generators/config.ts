@@ -19,11 +19,24 @@ function getWorkspaceFolders(): string[] {
     const workspaceContent = readFileSync('pnpm-workspace.yaml', 'utf8');
     const workspace = parse(workspaceContent);
 
-    // Extract base folder names from patterns like "apps/*", "packages/*"
-    return workspace.packages
-      .filter((pkg: string) => pkg.endsWith('/*'))
-      .map((pkg: string) => pkg.replace('/*', ''))
+    if (!workspace.packages) {
+      return ['packages', 'apps', 'tooling', 'api'];
+    }
+
+    // Extract base folder names from patterns like "packages/**", "tooling/**"
+    const folders = workspace.packages
+      .filter((pkg: string) => pkg.includes('/**') || pkg.includes('/*'))
+      .map((pkg: string) => {
+        // Handle both "packages/**" and "packages/*" patterns
+        return pkg.replace(/\/\*\*?$/, '').replace(/^['"]|['"]$/g, '');
+      })
       .sort();
+
+    if (folders.length === 0) {
+      return ['packages', 'apps', 'tooling', 'api'];
+    }
+
+    return folders;
   } catch (error) {
     console.warn('Could not read pnpm-workspace.yaml, using default folders');
     return ['packages', 'apps', 'tooling', 'api'];
