@@ -10,6 +10,7 @@ pnpm-lock.yaml
 .changeset/
 CHANGELOG.md
 .cache/
+.rollup.cache/
 *.tsbuildinfo
 *.js.map
 
