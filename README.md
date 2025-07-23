@@ -6,6 +6,7 @@
 A modern TypeScript monorepo template for npm packages, managed with pnpm and TurboRepo.
 
 ## Features
+
 - Monorepo structure with workspaces
 - TypeScript support
 - Linting and formatting with ESLint and Prettier
@@ -13,6 +14,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 - Easy dependency management with pnpm
 
 ## Getting Started
+
 1. Install dependencies:
    ```sh
    pnpm install
@@ -27,6 +29,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
    ```
 
 ## Packages
+
 - `packages/utils` – Example utility package
 
 ## Releasing Packages (Independent Versioning)
@@ -49,7 +52,9 @@ This monorepo uses [semantic-release-monorepo](https://github.com/pmowrer/semant
 For more, see the [semantic-release-monorepo docs](https://github.com/pmowrer/semantic-release-monorepo).
 
 ## Contributing
+
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
+
 [MIT](LICENSE)
