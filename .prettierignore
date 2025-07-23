@@ -9,6 +9,9 @@ pnpm-lock.yaml
 *.lock
 .changeset/
 CHANGELOG.md
+.cache/
+*.tsbuildinfo
+*.js.map
 
 
 
