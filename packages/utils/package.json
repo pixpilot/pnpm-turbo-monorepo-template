@@ -28,13 +28,11 @@
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "fix:all": "pnpm run lint:fix && pnpm run lint:README:fix && pnpm run format:fix"
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
     "@acme/rollup-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@acme/vitest-config": "workspace:*",

@@ -110,6 +110,9 @@ importers:
       '@acme/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
       '@acme/rollup-config':
         specifier: workspace:*
         version: link:../../tooling/rollup
@@ -229,6 +232,9 @@ importers:
 
   tooling/vitest:
     devDependencies:
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../prettier
       '@acme/tsconfig':
         specifier: workspace:*
         version: link:../typescript

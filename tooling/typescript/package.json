@@ -11,8 +11,6 @@
   "scripts": {
     "@acme/eslint-config": "workspace:*",
     "lint": "eslint '**/*.{js,ts,json}' || echo 'No files to lint'",
-    "lint:fix": "eslint --fix '**/*.{js,ts,json}' || echo 'No files to lint'",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   }
 }

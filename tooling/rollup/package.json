@@ -10,9 +10,7 @@
     "clean": "git clean -xdf .cache .turbo node_modules",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
-    "format:fix": "prettier --write ."
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",

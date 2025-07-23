@@ -10,11 +10,10 @@
     "clean": "git clean -xdf .cache .turbo node_modules",
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
+    "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "catalog:dev",
     "vitest": "catalog:dev"
