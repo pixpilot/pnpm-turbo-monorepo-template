@@ -17,7 +17,8 @@ export default {
         'style', // Code style/formatting
       ],
     ],
-    'subject-max-length': [1, 'always', 72],
+    'subject-max-length': [2, 'always', 150],
+    'header-max-length': [2, 'always', 150],
     'body-max-line-length': [1, 'always', 100],
   },
 };
