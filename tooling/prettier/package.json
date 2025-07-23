@@ -13,11 +13,11 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "dependencies": {
+    "@pixpilot/dev-config": "catalog:dev",
     "prettier": "catalog:dev"
   },
   "devDependencies": {
     "@acme/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "typescript": "catalog:dev"
   },

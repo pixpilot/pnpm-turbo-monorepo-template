@@ -1,0 +1,44 @@
+{
+  "name": "@pixpilot/{{ name }}",
+  "version": "0.1.0",
+  "keywords": [],
+  "license": "MIT",
+  "author": "pixpilot",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && rollup -c",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:*",
+    "@acme/prettier-config": "workspace:*",
+    "@acme/rollup-config": "workspace:*",
+    "@acme/tsconfig": "workspace:*",
+    "@acme/vitest-config": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
+  },
+  "packageManager": "pnpm@10.12.2"
+}

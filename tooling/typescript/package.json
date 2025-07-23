@@ -5,12 +5,13 @@
   "files": [
     "*.json"
   ],
-  "dependencies": {
-    "@pixpilot/dev-config": "catalog:dev"
-  },
   "scripts": {
-    "@acme/eslint-config": "workspace:*",
     "lint": "eslint '**/*.{js,ts,json}' || echo 'No files to lint'",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@pixpilot/dev-config": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "typescript": "catalog:dev"
   }
 }

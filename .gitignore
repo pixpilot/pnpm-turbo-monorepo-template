@@ -147,6 +147,5 @@ yarn-error.log*
 # Turbo (Turborepo)
 # -----------------------------
 .turbo/
-turbo/
 .turbo-*
-turbo-*
+

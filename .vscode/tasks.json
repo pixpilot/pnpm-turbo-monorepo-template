@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+				{
+			"type": "shell",
+			"label": "Create new package template",
+			"command": "npx tsx scripts/plopfile.ts",
+			"isBackground": false
+		},
+		{
+			"type": "shell",
+			"label": "Test generator output",
+			"command": "npx tsx scripts/plopfile.ts init --name testpkg --workspace packages",
+			"args": [],
+			"isBackground": false
+		}
+	]
+}
