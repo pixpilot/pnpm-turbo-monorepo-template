@@ -39,7 +39,8 @@
     "@acme/tsconfig": "workspace:*",
     "@acme/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev"
+    "@types/node": "catalog:dev",
+    "rollup": "catalog:dev"
   },
   "packageManager": "pnpm@10.12.2"
 }
