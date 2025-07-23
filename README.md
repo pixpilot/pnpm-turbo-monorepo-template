@@ -5,7 +5,7 @@
 
 A modern TypeScript monorepo template for npm packages, managed with pnpm and TurboRepo.
 
-## Features
+## ✨ Features
 
 - Monorepo structure with workspaces
 - TypeScript support
@@ -13,7 +13,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 - Build tooling with Rollup
 - Easy dependency management with pnpm
 
-## Getting Started
+## 🚀 Getting Started
 
 1. Install dependencies:
    ```sh
@@ -28,15 +28,19 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
    pnpm test
    ```
 
-## Packages
+## 📦 Packages
 
 - `packages/utils` – Example utility package
 
-## Releasing Packages (Independent Versioning)
+### 🏷️ Package Naming Convention
+
+In this template, we use `@acme` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
+
+## 🚢 Releasing Packages (Independent Versioning)
 
 This monorepo uses [semantic-release-monorepo](https://github.com/pmowrer/semantic-release-monorepo) for fully automated, independent versioning and publishing of each package.
 
-### How to Release
+### 📝 How to Release
 
 1. Ensure you have an `NPM_TOKEN` with publish rights set in your environment (for CI/CD, set as a secret).
 2. Run the following command from the root:
@@ -51,10 +55,10 @@ This monorepo uses [semantic-release-monorepo](https://github.com/pmowrer/semant
 
 For more, see the [semantic-release-monorepo docs](https://github.com/pmowrer/semantic-release-monorepo).
 
-## Contributing
+## 🤝 Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
