@@ -84,6 +84,13 @@ module.exports = function generator(plop: any) {
         message: 'Is this an npm package?',
         default: false,
       },
+      {
+        type: 'confirm',
+        name: 'isPublicPackage',
+        message: 'Is this a public package?',
+        default: false,
+        when: (answers: any) => answers.isNpmPackage === true,
+      },
     ],
     actions: function (data: any) {
       const actions = [
