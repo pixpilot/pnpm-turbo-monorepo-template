@@ -91,6 +91,22 @@ module.exports = function generator(plop: any) {
         default: false,
         when: (answers: any) => answers.isNpmPackage === true,
       },
+      {
+        type: 'list',
+        name: 'licenseType',
+        message: 'Select a license for this package:',
+        choices: [
+          { name: 'None', value: 'none' },
+          { name: 'Empty LICENSE file', value: 'empty' },
+          { name: 'MIT', value: 'mit' },
+          { name: 'Apache 2.0', value: 'apache-2.0' },
+          { name: 'GPL v3', value: 'gpl-3.0' },
+          { name: 'BSD 3-Clause', value: 'bsd-3-clause' },
+          { name: 'Mozilla Public License 2.0', value: 'mpl-2.0' },
+          { name: 'LGPL v3', value: 'lgpl-3.0' },
+        ],
+        default: 'none',
+      },
     ],
     actions: function (data: any) {
       const actions = [
@@ -165,6 +181,51 @@ module.exports = function generator(plop: any) {
           type: 'add',
           path: '{{ workspace }}/{{ name }}/release.config.js',
           templateFile: 'templates/release.config.js.hbs',
+        });
+      }
+
+      // Conditionally add LICENSE file based on licenseType
+      if (data.licenseType === 'empty') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          template: '',
+        });
+      } else if (data.licenseType === 'mit') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_MIT',
+        });
+      } else if (data.licenseType === 'apache-2.0') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_APACHE_2_0',
+        });
+      } else if (data.licenseType === 'gpl-3.0') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_GPL_3_0',
+        });
+      } else if (data.licenseType === 'bsd-3-clause') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_BSD_3_CLAUSE',
+        });
+      } else if (data.licenseType === 'mpl-2.0') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_MPL_2_0',
+        });
+      } else if (data.licenseType === 'lgpl-3.0') {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/LICENSE',
+          templateFile: 'templates/LICENSE_LGPL_3_0',
         });
       }
 

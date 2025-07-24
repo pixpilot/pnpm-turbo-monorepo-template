@@ -50,6 +50,9 @@ importers:
       '@pixpilot/dev-config':
         specifier: catalog:dev
         version: 1.6.2(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint-config-prettier@10.1.8(eslint@9.31.0(jiti@2.4.2)))(eslint@9.31.0(jiti@2.4.2))(prettier@3.6.2)(typescript-eslint@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
+      '@pixpilot/semantic-release-require-config':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@semantic-release/changelog':
         specifier: ^6.0.3
         version: 6.0.3(semantic-release@24.2.7(typescript@5.8.3))
@@ -110,6 +113,33 @@ importers:
       vitest:
         specifier: catalog:dev
         version: 3.2.4(@types/node@24.1.0)(@vitest/ui@3.2.4)(jiti@2.4.2)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
+
+  packages/a:
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@acme/rollup-config':
+        specifier: workspace:*
+        version: link:../../tooling/rollup
+      '@acme/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@acme/vitest-config':
+        specifier: workspace:*
+        version: link:../../tooling/vitest
+      '@pixpilot/dev-config':
+        specifier: catalog:dev
+        version: 1.6.2(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint-config-prettier@10.1.8(eslint@9.31.0(jiti@2.4.2)))(eslint@9.31.0(jiti@2.4.2))(prettier@3.6.2)(typescript-eslint@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
+      '@types/node':
+        specifier: catalog:dev
+        version: 22.16.5
+      rollup:
+        specifier: catalog:dev
+        version: 4.45.1
 
   packages/utils:
     devDependencies:
@@ -972,6 +1002,9 @@ packages:
       prettier: ^3.6.0
       typescript: ^5.0.0
       typescript-eslint: ^8.0.0
+
+  '@pixpilot/semantic-release-require-config@1.0.0':
+    resolution: {integrity: sha512-F/9+vQidcGoTXV3WrwF0YO64fLVunnT63o+fRaAIK0GC15LXmRxA5D1peCt46G99XgmYVMRezMaKu7wRVGl68g==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -5774,6 +5807,8 @@ snapshots:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+
+  '@pixpilot/semantic-release-require-config@1.0.0': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
