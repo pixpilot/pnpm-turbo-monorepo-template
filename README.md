@@ -34,7 +34,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 ### 🏷️ Package Naming Convention
 
-In this template, we use `@acme` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
+In this template, we use `@pixpilot` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
 
 ## 🚢 Releasing Packages (Independent Versioning)
 

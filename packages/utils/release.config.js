@@ -1,4 +1,4 @@
-import config from '@acme/semantic-release';
+import config from '@internal/semantic-release';
 
 export default {
   ...config,

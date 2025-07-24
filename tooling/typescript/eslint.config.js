@@ -1,4 +1,4 @@
-import baseConfig from '@acme/eslint-config/base';
+import baseConfig from '@internal/eslint-config/base';
 
 /** @type any} */
 export default [...baseConfig];

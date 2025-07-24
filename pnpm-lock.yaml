@@ -38,15 +38,15 @@ importers:
 
   .:
     devDependencies:
-      '@acme/prettier-config':
-        specifier: workspace:*
-        version: link:tooling/prettier
       '@commitlint/cli':
         specifier: ^19.8.1
         version: 19.8.1(@types/node@24.1.0)(typescript@5.8.3)
       '@commitlint/config-conventional':
         specifier: ^19.8.1
         version: 19.8.1
+      '@internal/prettier-config':
+        specifier: workspace:*
+        version: link:tooling/prettier
       '@pixpilot/dev-config':
         specifier: catalog:dev
         version: 1.6.2(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint-config-prettier@10.1.8(eslint@9.31.0(jiti@2.4.2)))(eslint@9.31.0(jiti@2.4.2))(prettier@3.6.2)(typescript-eslint@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
@@ -114,51 +114,24 @@ importers:
         specifier: catalog:dev
         version: 3.2.4(@types/node@24.1.0)(@vitest/ui@3.2.4)(jiti@2.4.2)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
 
-  packages/a:
-    devDependencies:
-      '@acme/eslint-config':
-        specifier: workspace:*
-        version: link:../../tooling/eslint
-      '@acme/prettier-config':
-        specifier: workspace:*
-        version: link:../../tooling/prettier
-      '@acme/rollup-config':
-        specifier: workspace:*
-        version: link:../../tooling/rollup
-      '@acme/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript
-      '@acme/vitest-config':
-        specifier: workspace:*
-        version: link:../../tooling/vitest
-      '@pixpilot/dev-config':
-        specifier: catalog:dev
-        version: 1.6.2(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint-config-prettier@10.1.8(eslint@9.31.0(jiti@2.4.2)))(eslint@9.31.0(jiti@2.4.2))(prettier@3.6.2)(typescript-eslint@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
-      '@types/node':
-        specifier: catalog:dev
-        version: 22.16.5
-      rollup:
-        specifier: catalog:dev
-        version: 4.45.1
-
   packages/utils:
     devDependencies:
-      '@acme/eslint-config':
+      '@internal/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
-      '@acme/prettier-config':
+      '@internal/prettier-config':
         specifier: workspace:*
         version: link:../../tooling/prettier
-      '@acme/rollup-config':
+      '@internal/rollup-config':
         specifier: workspace:*
         version: link:../../tooling/rollup
-      '@acme/semantic-release':
+      '@internal/semantic-release':
         specifier: workspace:*
         version: link:../../tooling/semantic-release
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../../tooling/typescript
-      '@acme/vitest-config':
+      '@internal/vitest-config':
         specifier: workspace:*
         version: link:../../tooling/vitest
       '@pixpilot/dev-config':
@@ -201,10 +174,10 @@ importers:
         specifier: ^8.38.0
         version: 8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
     devDependencies:
-      '@acme/prettier-config':
+      '@internal/prettier-config':
         specifier: workspace:*
         version: link:../prettier
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       eslint:
@@ -226,7 +199,7 @@ importers:
         specifier: catalog:dev
         version: 3.6.2
     devDependencies:
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@types/node':
@@ -238,10 +211,10 @@ importers:
 
   tooling/rollup:
     devDependencies:
-      '@acme/eslint-config':
+      '@internal/eslint-config':
         specifier: workspace:*
         version: link:../eslint
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
@@ -265,10 +238,10 @@ importers:
 
   tooling/semantic-release:
     devDependencies:
-      '@acme/eslint-config':
+      '@internal/eslint-config':
         specifier: workspace:*
         version: link:../eslint
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
@@ -304,10 +277,10 @@ importers:
 
   tooling/vitest:
     devDependencies:
-      '@acme/prettier-config':
+      '@internal/prettier-config':
         specifier: workspace:*
         version: link:../prettier
-      '@acme/tsconfig':
+      '@internal/tsconfig':
         specifier: workspace:*
         version: link:../typescript
       '@vitest/coverage-v8':

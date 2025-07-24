@@ -1,3 +1,3 @@
-import baseConfig from '@acme/vitest-config';
+import baseConfig from '@internal/vitest-config';
 
 export default baseConfig;

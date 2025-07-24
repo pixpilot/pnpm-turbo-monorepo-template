@@ -1,5 +1,5 @@
 {
-  "name": "@acme/prettier-config",
+  "name": "@internal/prettier-config",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -17,9 +17,9 @@
     "prettier": "catalog:dev"
   },
   "devDependencies": {
-    "@acme/tsconfig": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@types/node": "catalog:dev",
     "typescript": "catalog:dev"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@acme/vitest-config",
+  "name": "@internal/vitest-config",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -13,10 +13,10 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
-    "@acme/prettier-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

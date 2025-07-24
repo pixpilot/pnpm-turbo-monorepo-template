@@ -1,5 +1,5 @@
 {
-  "name": "@acme/semantic-release",
+  "name": "@internal/semantic-release",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -13,8 +13,8 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
-    "@acme/eslint-config": "workspace:*",
-    "@acme/tsconfig": "workspace:*",
+    "@internal/eslint-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
@@ -22,5 +22,5 @@
     "rollup": "catalog:dev",
     "typescript": "catalog:dev"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

@@ -29,9 +29,9 @@
     "release": "pnpm -r --filter ./packages/* --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo -e @pixpilot/semantic-release-require-config"
   },
   "devDependencies": {
-    "@acme/prettier-config": "workspace:*",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@pixpilot/semantic-release-require-config": "^1.0.0",
     "@semantic-release/changelog": "^6.0.3",
@@ -55,5 +55,5 @@
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@internal/prettier-config"
 }

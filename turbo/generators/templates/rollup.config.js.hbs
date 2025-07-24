@@ -1,3 +1,3 @@
-import rollupConfig from '@acme/rollup-config';
+import rollupConfig from '@internal/rollup-config';
 
 export default rollupConfig;
