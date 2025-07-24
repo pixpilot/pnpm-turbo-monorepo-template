@@ -26,7 +26,7 @@
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
-    "release": "pnpm -r --workspace-concurrency=1 exec -- npx --no-install semantic-release -e semantic-release-monorepo"
+    "release": "pnpm -r --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:*",

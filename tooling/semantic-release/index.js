@@ -1,5 +1,4 @@
 export default {
-  extends: 'semantic-release-monorepo',
   branches: [
     // Production branch for stable releases (e.g., 1.5.0)
     'main',

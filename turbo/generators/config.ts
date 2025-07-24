@@ -52,14 +52,14 @@ module.exports = function generator(plop: any) {
       {
         type: 'list',
         name: 'workspace',
-        message: 'Which workspace folder would you like to create the package in?',
+        message: 'Select target workspace:',
         choices: workspaceFolders,
         default: 'packages',
       },
       {
         type: 'input',
         name: 'name',
-        message: 'What is the name of the package?',
+        message: 'Enter the name of the package?',
         validate: (input: string) => {
           if (!input || input.trim().length === 0) {
             return 'Package name is required';
@@ -75,81 +75,100 @@ module.exports = function generator(plop: any) {
       {
         type: 'input',
         name: 'deps',
-        message:
-          'Enter a space separated list of dependencies you would like to install (optional)',
+        message: 'Enter list of dependencies (space separated, optional)',
         default: '',
       },
+      {
+        type: 'confirm',
+        name: 'isNpmPackage',
+        message: 'Is this an npm package?',
+        default: false,
+      },
     ],
-    actions: [
-      (answers: any) => {
-        if (answers.name) {
-          // Ensure name is in kebab-case
-          const kebabName = toKebabCase(answers.name);
+    actions: function (data: any) {
+      const actions = [
+        (answers: any) => {
+          if (answers.name) {
+            // Ensure name is in kebab-case
+            const kebabName = toKebabCase(answers.name);
 
-          if (kebabName.startsWith('@acme/') || kebabName.startsWith('@')) {
-            answers.name = kebabName.replace(/^@[^/]+\//, '');
-          } else {
-            answers.name = kebabName;
+            if (kebabName.startsWith('@acme/') || kebabName.startsWith('@')) {
+              answers.name = kebabName.replace(/^@[^/]+\//, '');
+            } else {
+              answers.name = kebabName;
+            }
           }
-        }
-        return 'Config sanitized';
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/eslint.config.js',
-        templateFile: 'templates/eslint.config.js.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/package.json',
-        templateFile: 'templates/package.json.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/tsconfig.json',
-        templateFile: 'templates/tsconfig.json.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/src/index.ts',
-        template: "export const name = '{{ name }}';",
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/rollup.config.js',
-        templateFile: 'templates/rollup.config.js.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/vitest.config.ts',
-        templateFile: 'templates/vitest.config.ts.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/tsconfig.build.json',
-        templateFile: 'templates/tsconfig.build.json.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/README.md',
-        templateFile: 'templates/README.md.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/src/main.ts',
-        templateFile: 'templates/src/main.ts.hbs',
-      },
-      {
-        type: 'add',
-        path: '{{ workspace }}/{{ name }}/tests/main.test.ts',
-        templateFile: 'templates/tests/main.test.ts.hbs',
-      },
-      {
+          return 'Config sanitized';
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/eslint.config.js',
+          templateFile: 'templates/eslint.config.js.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/package.json',
+          templateFile: 'templates/package.json.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/tsconfig.json',
+          templateFile: 'templates/tsconfig.json.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/src/index.ts',
+          template: "export const name = '{{ name }}';",
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/rollup.config.js',
+          templateFile: 'templates/rollup.config.js.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/vitest.config.ts',
+          templateFile: 'templates/vitest.config.ts.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/tsconfig.build.json',
+          templateFile: 'templates/tsconfig.build.json.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/README.md',
+          templateFile: 'templates/README.md.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/src/main.ts',
+          templateFile: 'templates/src/main.ts.hbs',
+        },
+        {
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/tests/main.test.ts',
+          templateFile: 'templates/tests/main.test.ts.hbs',
+        },
+      ];
+
+      // Conditionally add release.config.js only if isNpmPackage is true
+      if (data.isNpmPackage === true) {
+        actions.push({
+          type: 'add',
+          path: '{{ workspace }}/{{ name }}/release.config.js',
+          templateFile: 'templates/release.config.js.hbs',
+        });
+      }
+
+      // Add the package.json modify action
+      actions.push({
         type: 'modify',
         path: '{{ workspace }}/{{ name }}/package.json',
         async transform(content: string, answers: any) {
+          const pkg = JSON.parse(content);
+          // Add user-specified dependencies
           if (answers.deps && answers.deps.trim()) {
-            const pkg = JSON.parse(content);
             for (const dep of answers.deps.split(' ').filter(Boolean)) {
               try {
                 const response = await fetch(
@@ -163,12 +182,29 @@ module.exports = function generator(plop: any) {
                 console.warn(`Failed to fetch version for ${dep}, skipping...`);
               }
             }
-            return JSON.stringify(pkg, null, 2);
           }
-          return content;
+          // Add @acme/semantic-release to devDependencies if isNpmPackage is true
+          if (answers.isNpmPackage === true) {
+            if (!pkg.devDependencies) pkg.devDependencies = {};
+            pkg.devDependencies['@acme/semantic-release'] = 'workspace:*';
+          }
+          // Sort dependencies and devDependencies alphabetically
+          if (pkg.dependencies) {
+            pkg.dependencies = Object.fromEntries(
+              Object.entries(pkg.dependencies).sort(([a], [b]) => a.localeCompare(b)),
+            );
+          }
+          if (pkg.devDependencies) {
+            pkg.devDependencies = Object.fromEntries(
+              Object.entries(pkg.devDependencies).sort(([a], [b]) => a.localeCompare(b)),
+            );
+          }
+          return JSON.stringify(pkg, null, 2);
         },
-      },
-      async (answers: any) => {
+      } as any);
+
+      // Add the final install and format action
+      actions.push((async (answers: any) => {
         /**
          * Install deps and format everything
          */
@@ -186,7 +222,9 @@ module.exports = function generator(plop: any) {
           }
         }
         return 'Package not scaffolded';
-      },
-    ],
+      }) as any);
+
+      return actions;
+    },
   });
 };
