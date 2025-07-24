@@ -18,10 +18,12 @@
   "files": [
     "dist"
   ],
-  {{#if isPublicPackage}}
+  {{#if isNpmPackage}}
   "publishConfig": {
-    "access": "public"
+    "access": "{{#if isPublicPackage}}public{{else}}restricted{{/if}}"
   },
+  {{else}}
+  "private": true,
   {{/if}}
   "scripts": {
     "test": "vitest run",
