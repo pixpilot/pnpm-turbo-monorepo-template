@@ -39,10 +39,11 @@ const config = {
   plugins: [
     typescript({
       tsconfig: './tsconfig.build.json',
-      // Ensure declaration files also respect the directory structure.
-      declaration: true,
-      declarationDir: outputDir,
-      rootDir: 'src',
+      /*
+       * Enabling incremental compilation may cause errors and sometimes prevent .d.ts file generation.
+       * It can also cause the creation of a .rollup.cache folder, which sometimes results in .d.ts files not being copied.
+       */
+      incremental: false,
     }),
     terser(),
   ],
