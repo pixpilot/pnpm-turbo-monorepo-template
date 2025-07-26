@@ -1,22 +1,8 @@
-import baseConfig from '@pixpilot/dev-config/eslint/base';
-import jestConfig from '@pixpilot/dev-config/eslint/jest';
+import { createNodejsEslintConfig } from '@pixpilot/dev-config';
 import turboPlugin from 'eslint-plugin-turbo';
 
-const config = /** @type {any} */ ([
-  {
-    ignores: [
-      '**/*.config.*',
-      '.rollup.cache/**',
-      '.cache/**',
-      'dist/**',
-      'coverage/**',
-      'node_modules/**',
-    ],
-  },
-
-  ...baseConfig,
-  ...jestConfig,
-
+/** @type {any} */
+const config = createNodejsEslintConfig([
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
     plugins: {

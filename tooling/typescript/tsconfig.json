@@ -1,8 +1,4 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+  "extends": "./base.json",
+  "include": ["eslint.config.js"]
 }
