@@ -120,33 +120,6 @@ importers:
         specifier: catalog:dev
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.16.5)(@vitest/ui@3.2.4)(jiti@2.4.2)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
 
-  packages/a:
-    devDependencies:
-      '@internal/eslint-config':
-        specifier: workspace:*
-        version: link:../../tooling/eslint
-      '@internal/prettier-config':
-        specifier: workspace:*
-        version: link:../../tooling/prettier
-      '@internal/rollup-config':
-        specifier: workspace:*
-        version: link:../../tooling/rollup
-      '@internal/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript
-      '@internal/vitest-config':
-        specifier: workspace:*
-        version: link:../../tooling/vitest
-      '@pixpilot/dev-config':
-        specifier: catalog:dev
-        version: 2.1.0(@typescript-eslint/eslint-plugin@8.38.0(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(@typescript-eslint/parser@8.38.0(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.31.0(jiti@2.4.2))(jest@30.0.4(@types/node@22.16.5)(ts-node@10.9.2(@types/node@22.16.5)(typescript@5.8.3)))(prettier@3.6.2)(typescript@5.8.3)
-      '@types/node':
-        specifier: catalog:dev
-        version: 22.16.5
-      rollup:
-        specifier: catalog:dev
-        version: 4.45.1
-
   packages/utils:
     devDependencies:
       '@internal/eslint-config':
