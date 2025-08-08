@@ -7,7 +7,7 @@ catalogs:
     eslint: ^9.28.0
     prettier: ^3.6.0
     typescript: ^5.8.3
-    '@types/node': ^22.15.29
+    '@types/node': ^24.2.0
     '@pixpilot/dev-config': ^2.1.0
     vitest: ^3.2.4
     '@vitest/ui': ^3.2.4
