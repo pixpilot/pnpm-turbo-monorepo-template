@@ -34,7 +34,6 @@
     "@internal/eslint-config": "workspace:*",
     "@internal/rollup-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/semantic-release": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",

@@ -10,47 +10,5 @@
     {
       "file": "commitlint.config.mjs"
     }
-  ],
-  "fileGenerator.configs": [
-    {
-      "tasks": [
-        {
-          "terminalInstanceType": "label",
-          "runTaskOnFileCreation": false,
-          "label": "Test current file (node)",
-          "command": "npm --prefix ${relativeFileDirname} test ${relativeFileToPackageRoot}",
-          "checkIfArgPathExist": []
-        },
-        {
-          "runTaskOnFileCreation": true,
-          "label": "Watch current file (node)",
-          "command": "npm --prefix ${relativeFileDirname} run test:watch ${relativeFileToPackageRoot}",
-          "userInputPrompt": [
-            [
-              {
-                "label": "--coverage"
-              }
-            ]
-          ],
-          "checkIfArgPathExist": []
-        },
-        {
-          "terminalInstanceType": "label",
-          "runTaskOnFileCreation": false,
-          "label": "Test directory (node)",
-          // Run all tests in the test directory (cross-platform)
-          "command": "npm --prefix ${fileDirname} test .",
-          "shouldSwitchToFile": false,
-          "checkIfArgPathExist": []
-        }
-      ],
-      "label": "Generic Tests",
-      "fileSuffixType": "extend extension",
-      "filesSuffix": "test",
-      "directoryName": "tests",
-      "supportedExtension": ["ts", "tsx", "js", "jsx"],
-      "defaultLocationForFiles": "project root",
-      "description": "Generic Test Runner for Jest/Vitest"
-    }
   ]
 }

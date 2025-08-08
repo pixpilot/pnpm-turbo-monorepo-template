@@ -27,7 +27,7 @@
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
-    "release": "pnpm -r --filter ./packages/* --workspace-concurrency=1 exec -- semantic-release -e semantic-release-monorepo -e @pixpilot/semantic-release-require-config"
+    "changeset": "changeset"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

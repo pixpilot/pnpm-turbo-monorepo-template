@@ -4,7 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["vitest/globals"]
   },
   "exclude": ["node_modules", "build", "coverage", ".rollup.cache", "dist"]
 }
