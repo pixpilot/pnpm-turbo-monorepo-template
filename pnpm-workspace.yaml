@@ -4,7 +4,7 @@ packages:
 
 catalogs:
   dev:
-    eslint: ^9.28.0
+    eslint: ^9.32.0
     prettier: ^3.6.0
     typescript: ^5.8.3
     '@types/node': ^22.15.29
