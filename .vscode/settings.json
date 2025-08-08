@@ -14,23 +14,17 @@
   "fileGenerator.configs": [
     {
       "tasks": [
-        //! Test current file (node)
         {
           "terminalInstanceType": "label",
           "runTaskOnFileCreation": false,
           "label": "Test current file (node)",
-          "command": "pnpm test",
-          "checkIfArgPathExist": ["--config"],
-          "args": [
-            "${relativeTargetFile}",
-            "--config=${workspaceFolder}/jest.config.node.js"
-          ]
+          "command": "npm --prefix ${relativeFileDirname} test ${relativeFileToPackageRoot}",
+          "checkIfArgPathExist": []
         },
         {
           "runTaskOnFileCreation": true,
           "label": "Watch current file (node)",
-          "command": "pnpm test",
-          "checkIfArgPathExist": ["--config"],
+          "command": "npm --prefix ${relativeFileDirname} run test:watch ${relativeFileToPackageRoot}",
           "userInputPrompt": [
             [
               {
@@ -38,32 +32,25 @@
               }
             ]
           ],
-          "args": [
-            "--watch",
-            "${relativeTargetFile}",
-            "--config=${workspaceFolder}/jest.config.node.js"
-          ]
+          "checkIfArgPathExist": []
         },
         {
           "terminalInstanceType": "label",
           "runTaskOnFileCreation": false,
           "label": "Test directory (node)",
-          "command": "pnpm test",
+          // Run all tests in the test directory (cross-platform)
+          "command": "npm --prefix ${fileDirname} test .",
           "shouldSwitchToFile": false,
-          "checkIfArgPathExist": ["--config"],
-          "args": [
-            "${relativeFileDirname}",
-            "--config=${workspaceFolder}/jest.config.node.js"
-          ]
+          "checkIfArgPathExist": []
         }
       ],
-      "label": "Jest Tests",
+      "label": "Generic Tests",
       "fileSuffixType": "extend extension",
       "filesSuffix": "test",
       "directoryName": "tests",
       "supportedExtension": ["ts", "tsx", "js", "jsx"],
       "defaultLocationForFiles": "project root",
-      "description": "Jest Tests Creator"
+      "description": "Generic Test Runner for Jest/Vitest"
     }
   ]
 }

@@ -17,7 +17,7 @@ on:
   workflow_call:
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
