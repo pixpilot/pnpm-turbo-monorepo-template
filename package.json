@@ -27,6 +27,7 @@
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
+    "deps:update:recursive": "npx taze -r",
     "changeset": "changeset"
   },
   "devDependencies": {
