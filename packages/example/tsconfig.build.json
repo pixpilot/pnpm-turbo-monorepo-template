@@ -3,9 +3,9 @@
   "compilerOptions": {
     "rootDir": "./src",
     "declaration": true,
-    "outDir": "./dist",
-    "declarationDir": "./dist"
+    "declarationDir": "./dist",
+    "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["tests/**/*.spec.ts", "tests/**/*.test.ts"]
+  "exclude": ["test/**/*.spec.ts", "test/**/*.test.ts"]
 }

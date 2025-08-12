@@ -1,26 +1,27 @@
 {
-  "name": "@internal/utils",
-  "version": "0.0.0",
-  "keywords": [],
-  "license": "MIT",
-  "author": "pixpilot",
+  "name": "example",
   "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.12.2",
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
   "exports": "./src/index.ts",
   "files": [
     "dist"
   ],
   "publishConfig": {
     "access": "public",
-    "main": "./lib/index.js",
-    "types": "./lib/index.d.ts",
     "exports": {
       ".": {
         "types": "./dist/index.d.ts",
         "import": "./dist/index.js",
         "require": "./dist/index.cjs"
-      },
-      "./package.json": "./package.json"
-    }
+      }
+    },
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts"
   },
   "scripts": {
     "prepublishOnly": "pnpm run clean && pnpm run build",
@@ -43,6 +44,5 @@
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "rollup": "catalog:dev"
-  },
-  "packageManager": "pnpm@10.14.0"
+  }
 }

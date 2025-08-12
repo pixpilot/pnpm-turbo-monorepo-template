@@ -1,4 +1,5 @@
-import path from 'path';
+import path from 'node:path';
+import process from 'node:process';
 
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
