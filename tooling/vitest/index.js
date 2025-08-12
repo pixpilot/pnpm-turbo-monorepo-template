@@ -5,9 +5,10 @@ export default defineConfig({
     watch: false,
     globals: true,
     environment: 'node',
-    include: ['tests/**/*.test.ts', 'packages/**/tests/**/*.test.ts'],
     exclude: ['**/node_modules/**', '**/dist/**'],
     coverage: {
+      provider: 'v8',
+      reportOnFailure: true,
       reporter: ['text', 'json', 'html'],
       include: ['packages/*/src/**/*.ts'], // Match all src files in all packages
     },

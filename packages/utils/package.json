@@ -36,13 +36,13 @@
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
+    "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "rollup": "catalog:dev"
   },
-  "packageManager": "pnpm@10.12.2"
+  "packageManager": "pnpm@10.14.0"
 }

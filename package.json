@@ -5,7 +5,7 @@
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
   },
-  "packageManager": "pnpm@10.11.1",
+  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
@@ -27,7 +27,8 @@
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "turbo:gen:init": "pnpm turbo gen init",
-    "deps:update:recursive": "npx taze -r",
+    "deps:update": "npx taze -r -w && pnpm install",
+    "deps:update:major": "npx taze major -r -w && pnpm install",
     "changeset": "changeset"
   },
   "devDependencies": {
@@ -35,12 +36,12 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@pixpilot/pnpm-workspace-package-generator": "^1.5.8",
+    "@pixpilot/pnpm-workspace-package-generator": "^1.5.9",
     "@pixpilot/semantic-release-require-config": "^1.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/github": "^11.0.4",
     "@semantic-release/npm": "^12.0.2",
     "@semantic-release/release-notes-generator": "^14.0.3",
     "@turbo/gen": "^2.5.5",
@@ -49,7 +50,7 @@
     "@vitest/ui": "catalog:dev",
     "eslint": "catalog:dev",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.2",
+    "lint-staged": "^16.1.5",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
     "semantic-release": "^24.2.7",
