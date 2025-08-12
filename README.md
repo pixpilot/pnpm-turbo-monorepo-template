@@ -30,7 +30,7 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 ## 📦 Packages
 
-- `packages/utils` – Example utility package
+- [packages/example-package](packages/example-package) – Example package included by default. You can remove this and run `pnpm run turbo:gen:init` to generate a new package for your monorepo.
 
 ### 🏷️ Package Naming Convention
 

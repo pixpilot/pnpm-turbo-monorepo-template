@@ -1,11 +1,11 @@
 {
   "name": "pnpm-turbo-monorepo-template",
   "private": true,
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
   },
-  "packageManager": "pnpm@10.14.0",
   "scripts": {
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
@@ -36,7 +36,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@pixpilot/workspace-package-generator": "^1.0.0",
+    "@pixpilot/workspace-package-generator": "^1.0.2",
     "@turbo/gen": "^2.5.5",
     "@types/node": "catalog:dev",
     "@vitest/coverage-v8": "catalog:dev",
