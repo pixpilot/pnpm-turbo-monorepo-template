@@ -36,7 +36,7 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@pixpilot/workspace-package-generator": "^1.0.2",
+    "@pixpilot/workspace-package-generator": "^1.0.3",
     "@turbo/gen": "^2.5.5",
     "@types/node": "catalog:dev",
     "@vitest/coverage-v8": "catalog:dev",
@@ -46,7 +46,7 @@
     "lint-staged": "^16.1.5",
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
-    "tsx": "^4.20.3",
+    "tsx": "^4.20.4",
     "turbo": "^2.5.5",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
