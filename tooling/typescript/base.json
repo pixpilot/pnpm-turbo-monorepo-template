@@ -7,7 +7,7 @@
      eliminating the need to build internal packages.
      Reference: Chapter 5 of https://colinhacks.com/essays/live-types-typescript-monorepo
     */
-    //"customConditions": ["workspace-development-source"],
+    // "customConditions": ["workspace-development-source"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "declaration": true,

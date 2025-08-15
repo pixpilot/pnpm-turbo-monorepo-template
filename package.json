@@ -20,7 +20,7 @@
     "postinstall": "pnpm lint:ws",
     "test": "turbo run test",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",
     "typecheck": "turbo run typecheck",
     "clean:packages": "node scripts/cleanup-node-modules.js",
     "clean:packages:install": "pnpm clean:packages && pnpm install",
@@ -32,8 +32,8 @@
     "changeset": "changeset"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@pixpilot/workspace-package-generator": "^1.0.3",
