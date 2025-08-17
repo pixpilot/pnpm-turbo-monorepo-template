@@ -34,7 +34,7 @@ jobs:
       - name: Run CodeQL Analysis
         uses: pixpilot/github/actions/codeql-analysis@main
         with:
-          config-file: .github/codeql/codeql-configuration.yml
+          config-file: .github/codeql/codeql-config.yml
 # -------------------------------------------------------------
 # Alternative: Reusable workflow for code scanning
 # -------------------------------------------------------------
@@ -53,3 +53,4 @@ jobs:
 #         uses: pixpilot/github/actions/codeql-issue-maker@main
 #         with:
 #           token: ${{ secrets.GITHUB_TOKEN }}
+#           config-file: .github/codeql/codeql-config.yml
