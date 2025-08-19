@@ -16,6 +16,7 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "catalog:dev",
+    "eslint": "catalog:dev",
     "vitest": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"

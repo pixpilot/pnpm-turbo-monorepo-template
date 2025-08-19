@@ -7,12 +7,13 @@
     "*.json"
   ],
   "scripts": {
-    "lint": "eslint '**/*.{js,ts,json}' || echo 'No files to lint'",
+    "lint": "eslint . --ext .ts,.js,.json",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
+    "eslint": "catalog:dev",
     "typescript": "catalog:dev"
   }
 }
