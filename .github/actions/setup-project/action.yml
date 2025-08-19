@@ -1,41 +1,43 @@
-name: 'Setup project'
+name: Setup project
 description: 'Setup Node.js, install pnpm, install dependencies, and build the project'
 
 inputs:
   node-version:
-    description: 'Node.js version to use'
-    required: false
-    default: '20'
-  pnpm-version:
-    description: 'pnpm version to use'
-    required: false
-  registry-url:
-    description: 'npm registry URL'
+    description: Node.js version to use
     required: false
 
+  pnpm-version:
+    description: pnpm version to use
+    required: false
+
+  registry-url:
+    description: npm registry URL
+    required: false
+
+  build:
+    description: Whether to build the project
+    required: false
+    default: 'false'
+
 runs:
-  using: 'composite'
+  using: composite
   steps:
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: ${{ inputs.pnpm-version }}
+        version: ${{ inputs.pnpm-version || 'latest' }}
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ inputs.node-version }}
-        cache: 'pnpm'
+        cache: pnpm
         registry-url: ${{ inputs.registry-url }}
 
     - name: Install dependencies
       run: pnpm install
       shell: bash
 
-    - name: Install Turbo CLI
-      run: pnpm add -g turbo
-      shell: bash
-
-    - name: Build package
+    - name: Build project
+      if: ${{ inputs.build == 'true' }}
       run: pnpm run build
       shell: bash
