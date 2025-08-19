@@ -4,6 +4,7 @@ permissions:
   security-events: write
   actions: read
   contents: read
+  issues: write # Required for pixpilot/codeql-scanner@main
 
 on:
   push:
@@ -39,7 +40,7 @@ jobs:
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
 
-      - name: Run CodeQL Scanner
+      - name: CodeQL Analyze
         uses: github/codeql-action/analyze@v3
 # -------------------------------------------------------------
 # Alternative: pixpilot/codeql-scanner@main
