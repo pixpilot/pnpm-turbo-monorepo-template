@@ -8,4 +8,5 @@ const baseConfig = makeConfig({
   turbo: true,
 });
 
-export default baseConfig;
+// eslint-disable-next-line antfu/no-top-level-await
+export default await baseConfig;
