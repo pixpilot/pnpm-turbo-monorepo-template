@@ -51,8 +51,8 @@ importers:
         specifier: catalog:dev
         version: 3.0.0(prettier@3.6.2)(typescript@5.9.2)
       '@pixpilot/workspace-package-generator':
-        specifier: ^1.0.3
-        version: 1.0.3
+        specifier: ^1.1.1
+        version: 1.1.1
       '@turbo/gen':
         specifier: ^2.5.5
         version: 2.5.5(@types/node@22.17.2)(typescript@5.9.2)
@@ -713,8 +713,8 @@ packages:
       eslint-plugin-turbo:
         optional: true
 
-  '@pixpilot/workspace-package-generator@1.0.3':
-    resolution: {integrity: sha512-gnkvNJAScgyZO+gKJUnUPgutmWNBs6Ey0vdZSTtHjYxu7WtQB4godeQpT9yOfuxHVyHSYpEM6BzYQVOJqGcHfw==}
+  '@pixpilot/workspace-package-generator@1.1.1':
+    resolution: {integrity: sha512-HnLHqdQDhOF8HgWGb6D/lfFJnsCMYbNwXpyJriYgjNR0RzqRXi3VJbqxdX3mWg3zZk2aX4Jom4bvyQyjcaJ/Nw==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -4391,7 +4391,7 @@ snapshots:
       - vitest
       - vue-eslint-parser
 
-  '@pixpilot/workspace-package-generator@1.0.3':
+  '@pixpilot/workspace-package-generator@1.1.1':
     dependencies:
       '@manypkg/find-root': 3.1.0
       change-case: 5.4.4
