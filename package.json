@@ -37,7 +37,7 @@
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@pixpilot/workspace-package-generator": "^1.1.1",
-    "@turbo/gen": "^2.5.5",
+    "@turbo/gen": "^2.5.6",
     "@types/node": "catalog:dev",
     "@vitest/coverage-v8": "catalog:dev",
     "@vitest/ui": "catalog:dev",
@@ -47,7 +47,7 @@
     "prettier": "catalog:dev",
     "rimraf": "^6.0.1",
     "tsx": "^4.20.4",
-    "turbo": "^2.5.5",
+    "turbo": "^2.5.6",
     "typescript": "catalog:dev",
     "vitest": "catalog:dev"
   },
