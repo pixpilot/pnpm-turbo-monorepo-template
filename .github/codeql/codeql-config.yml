@@ -1,9 +1,11 @@
 name: CodeQL Configuration
 
 paths:
-  - 'packages/*'
+  - packages/*/src
 
 paths-ignore:
+  - test
+  - 'test/**'
   - tests
   - 'tests/**'
   - '**/__tests__/**'
@@ -19,8 +21,3 @@ paths-ignore:
   - '*.png'
   - '*.jpg'
   - '*.ico'
-
-query-filters:
-  # Falls over on our dynamic RegExp generation
-  - exclude:
-      id: js/regex-injection
