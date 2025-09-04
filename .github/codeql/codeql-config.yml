@@ -4,10 +4,8 @@ paths:
   - packages/*/src
 
 paths-ignore:
-  - test
   - 'test/**'
-  - tests
-  - 'tests/**'
+  - '**/tests/**'
   - '**/__tests__/**'
   - '**/*.test.ts'
   - '*.spec.ts'
