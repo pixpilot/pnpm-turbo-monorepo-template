@@ -4,6 +4,8 @@ paths:
   - packages/*/src
 
 paths-ignore:
+  - test
+  - 'test/**'
   - tests
   - 'tests/**'
   - '**/__tests__/**'
