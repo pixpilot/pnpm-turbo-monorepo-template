@@ -24,10 +24,10 @@
     "types": "./dist/index.d.ts"
   },
   "scripts": {
-    "prepublishOnly": "pnpm run clean:build && pnpm run build",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "clean:build": "git clean -xdf .cache .turbo dist",
-    "build": "pnpm run clean:build && rollup -c",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "git clean -xdf .cache .turbo dist",
+    "clean:all": "git clean -xdf .cache .turbo dist node_modules",
+    "build": "pnpm run clean && rollup -c",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
