@@ -24,7 +24,7 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",
     "typecheck": "turbo run typecheck",
-    "clean:workspaces": "turbo run clean:all",
+    "clean:workspaces": "turbo run clean:all && git clean -xdf .cache .turbo",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
