@@ -1,7 +1,7 @@
 {
   "name": "pnpm-turbo-monorepo-template",
   "private": true,
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.17.0",
   "engines": {
     "node": ">=22.14.0",
     "pnpm": ">=9.6.0"
