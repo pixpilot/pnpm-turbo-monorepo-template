@@ -30,6 +30,17 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 ## 📦 Packages
 
+- First, ensure the repository URL is included in the root `package.json`. This allows Turbo to automatically set the `repository` property for packages in the monorepo:
+
+  ```json
+  {
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/user/repo.git"
+    }
+  }
+  ```
+
 - [packages/example-package](packages/example-package) – Example package included by default. You can remove this and run `pnpm run turbo:gen:init` to generate a new package for your monorepo.
 
 ### 🏷️ Package Naming Convention
