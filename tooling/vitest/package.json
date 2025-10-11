@@ -4,7 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
   },
   "scripts": {
     "clean:all": "git clean -xdf .cache .turbo node_modules",
