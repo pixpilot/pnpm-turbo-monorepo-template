@@ -16,6 +16,7 @@
     "@internal/eslint-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "catalog:dev",
