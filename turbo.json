@@ -6,9 +6,6 @@
     "teamId": ""
   },
   "tasks": {
-    "topo": {
-      "dependsOn": ["^topo"]
-    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json", "dist/**"]
@@ -18,30 +15,15 @@
       "outputLogs": "new-only"
     },
     "lint": {
-      "dependsOn": ["^topo", "^build"],
+      "dependsOn": ["^build"],
       "outputs": [".cache/.eslintcache"]
     },
     "typecheck": {
-      "dependsOn": ["^topo", "^build"],
+      "dependsOn": ["^build"],
       "outputs": [".cache/tsbuildinfo.json"]
     },
     "clean:all": {
       "cache": false
-    },
-    "//#clean": {
-      "cache": false
-    },
-    "push": {
-      "cache": false,
-      "interactive": true
-    },
-    "studio": {
-      "cache": false,
-      "persistent": true
-    },
-    "ui-add": {
-      "cache": false,
-      "interactive": true
     },
     "test": {
       "dependsOn": ["^build"],
@@ -52,20 +34,5 @@
       "outputs": ["coverage/**"]
     }
   },
-  "globalEnv": [
-    "POSTGRES_URL",
-    "AUTH_DISCORD_ID",
-    "AUTH_DISCORD_SECRET",
-    "AUTH_REDIRECT_PROXY_URL",
-    "AUTH_SECRET",
-    "PORT"
-  ],
-  "globalPassThroughEnv": [
-    "NODE_ENV",
-    "CI",
-    "VERCEL",
-    "VERCEL_ENV",
-    "VERCEL_URL",
-    "npm_lifecycle_event"
-  ]
+  "globalPassThroughEnv": ["NODE_ENV", "CI", "npm_lifecycle_event"]
 }
