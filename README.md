@@ -10,7 +10,6 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 - Monorepo structure with workspaces
 - TypeScript support
 - Linting and formatting with ESLint and Prettier
-- Build tooling with Rollup
 - Easy dependency management with pnpm
 
 ## 🚀 Getting Started

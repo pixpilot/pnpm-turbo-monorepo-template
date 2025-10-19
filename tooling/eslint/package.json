@@ -15,13 +15,13 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
-    "@pixpilot/dev-config": "catalog:dev",
     "@pixpilot/eslint-config": "^2.8.0",
     "typescript-eslint": "^8.46.1"
   },
   "devDependencies": {
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
+    "@pixpilot/dev-config": "catalog:dev",
     "eslint": "catalog:dev",
     "prettier": "catalog:dev",
     "typescript": "catalog:dev"

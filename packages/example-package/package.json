@@ -27,7 +27,8 @@
     "prepublishOnly": "pnpm run clean && pnpm run build",
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "git clean -xdf .cache .turbo dist node_modules",
-    "build": "pnpm run clean && rollup -c",
+    "build": "tsdown",
+    "build:watch": "tsdown --watch",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
@@ -39,11 +40,10 @@
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
-    "@internal/rollup-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
+    "@internal/tsdown-config": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev",
-    "rollup": "catalog:dev"
+    "@types/node": "catalog:dev"
   }
 }
