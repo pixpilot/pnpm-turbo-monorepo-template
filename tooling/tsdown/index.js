@@ -1,7 +1,7 @@
 import { defineConfig as defineTsDownConfig } from '@pixpilot/tsdown-config';
 
 const KB = 1024;
-const LIMIT = 20;
+const LIMIT = 200;
 const LIMIT_KB = LIMIT * KB;
 
 /**

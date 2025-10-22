@@ -1,0 +1,211 @@
+{
+  "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/tasks.schema.json",
+  "extends": [
+    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/project-info/template.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/pixpilot-workspace-package-generator/template.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/github-pixpilot-owner-changesets-release/template.json"
+  ],
+  "name": "pnpm-turbo-monorepo-template-setup",
+  "tasks": [
+    {
+      "id": "update-root-package",
+      "name": "Update root package.json",
+      "description": "Update repository information in root package.json",
+      "type": "update-json",
+      "config": {
+        "file": "package.json",
+        "updates": {
+          "name": "{{repoName}}",
+          "author": "{{author}} <{{authorEmail}}>",
+          "repository": {
+            "type": "git",
+            "url": "{{repoUrl}}"
+          },
+          "homepage": "{{baseRepoUrl}}"
+        }
+      }
+    },
+    {
+      "id": "clean-release-workflow",
+      "name": "Clean release workflow",
+      "description": "Remove template-specific lines from release.yml",
+      "type": "regex-replace",
+      "config": {
+        "file": ".github/workflows/release.yml",
+        "pattern": "^\\s*if:\\s*\\$\\{\\{[^}]*endsWith\\(github\\.repository,\\s*['\"]pnpm-turbo-monorepo-template['\"][^}]*\\}\\}\\s*$",
+        "flags": "gm",
+        "replacement": ""
+      }
+    },
+    {
+      "id": "clean-readme",
+      "name": "Clean README",
+      "description": "Create a fresh README for the new project",
+      "type": "template",
+      "config": {
+        "file": "README.md",
+        "templateFile": "./templates/clean-readme.md"
+      }
+    },
+    {
+      "id": "clean-coverage",
+      "name": "Clean coverage directory",
+      "description": "Remove template coverage files",
+
+      "type": "delete",
+      "config": {
+        "paths": ["coverage"]
+      }
+    },
+    {
+      "id": "update-contributing",
+      "name": "Update CONTRIBUTING.md",
+      "description": "Update contributing guidelines with project info",
+
+      "type": "replace-in-file",
+      "config": {
+        "file": "CONTRIBUTING.md",
+        "replacements": [
+          {
+            "find": "pnpm-turbo-monorepo-template",
+            "replace": "{{repoName}}"
+          },
+          {
+            "find": "pixpilot/pnpm-turbo-monorepo-template",
+            "replace": "{{repoOwner}}/{{repoName}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "update-security",
+      "name": "Update SECURITY.md",
+      "description": "Update security policy with project info",
+      "type": "replace-in-file",
+      "config": {
+        "file": "SECURITY.md",
+        "replacements": [
+          {
+            "find": "pnpm-turbo-monorepo-template",
+            "replace": "{{repoName}}"
+          },
+          {
+            "find": "pixpilot/pnpm-turbo-monorepo-template",
+            "replace": "{{repoOwner}}/{{repoName}}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "clean-init-docs",
+      "name": "Remove initialization documentation",
+      "description": "Remove template initialization docs",
+      "type": "delete",
+      "config": {
+        "paths": [
+          "docs/INITIALIZATION.md",
+          "docs/INIT-SYSTEM-SUMMARY.md",
+          "docs/TESTING.md"
+        ]
+      }
+    },
+    {
+      "id": "update-postinstall",
+      "name": "Update postinstall script",
+      "description": "Remove init script from postinstall hook",
+      "required": true,
+      "enabled": true,
+      "type": "update-json",
+      "config": {
+        "file": "package.json",
+        "updates": {
+          "scripts.postinstall": "pnpm lint:ws"
+        }
+      }
+    },
+    {
+      "id": "remove-init-script",
+      "name": "Remove initialization files",
+      "description": "Remove this init script and related files",
+      "required": true,
+      "enabled": true,
+      "dependencies": ["update-postinstall"],
+      "type": "delete",
+      "config": {
+        "paths": ["scripts/init-template.ts", "scripts/init-tasks.ts"]
+      }
+    },
+    {
+      "id": "reinstall-dependencies",
+      "name": "Reinstall dependencies",
+      "description": "Reinstall dependencies after cleanup",
+      "required": false,
+      "enabled": true,
+      "dependencies": ["handle-example-packages", "remove-init-script"],
+      "type": "exec",
+      "config": {
+        "command": "pnpm install"
+      }
+    },
+
+    {
+      "id": "handle-example-packages",
+      "name": "Handle example packages",
+      "description": "Prompt user about keeping example packages and remove if not wanted",
+      "required": false,
+      "enabled": true,
+      "type": "delete",
+      "prompts": [
+        {
+          "id": "keepExamplePackages",
+          "type": "confirm",
+          "message": "Keep example packages? (helpful for reference)",
+          "default": false
+        }
+      ],
+      "config": {
+        "condition": "!keepExamplePackages",
+        "paths": ["packages/example-package"]
+      }
+    },
+    {
+      "id": "remove-setup-script",
+      "name": "Remove setup script",
+      "description": "Remove the setup script from package.json after setup is complete",
+      "type": "regex-replace",
+      "config": {
+        "file": "package.json",
+        "pattern": "\\n\\s*\"setup\":\\s*\"npx @pixpilot/scaffoldfy --tasks-file \\./setup/setup-tasks\\.json\",",
+        "flags": "",
+        "replacement": ""
+      }
+    },
+    {
+      "id": "delete-setup-tasks",
+      "name": "Delete setup tasks file",
+      "description": "Remove the setup-tasks.json file after setup is complete",
+      "type": "delete",
+      "config": {
+        "paths": ["setup"]
+      }
+    },
+    {
+      "id": "create-first-package",
+      "name": "Create first package",
+      "description": "Generate the first package in the monorepo using the package generator",
+      "type": "exec",
+      "prompts": [
+        {
+          "id": "createFirstPackagePrompt",
+          "type": "confirm",
+          "message": "Create the first package now?",
+          "default": true
+        }
+      ],
+      "config": {
+        "command": "pnpm run turbo:gen:init",
+        "condition": "createFirstPackagePrompt"
+      }
+    }
+  ]
+}
