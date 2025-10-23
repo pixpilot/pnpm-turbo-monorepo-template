@@ -1,4 +1,4 @@
-# Contributing to nestjs-auth-adapter
+# Contributing to pnpm-turbo-monorepo-template
 
 Thank you for your interest in contributing! 🎉
 
