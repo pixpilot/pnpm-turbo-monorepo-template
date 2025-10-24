@@ -1,21 +1,37 @@
 {
   "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/tasks.schema.json",
   "extends": [
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/project-info/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/pixpilot-workspace-package-generator/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/github-pixpilot-owner-changesets-release/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/license-file/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/update-root-package-json/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/security-policy/scaffoldfy.json",
-    "https://unpkg.com/@pixpilot/scaffoldfy-templates@latest/pixpilot-copilot-instructions/scaffoldfy.json"
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/project-info/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/pixpilot-info/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/turbo-workspace-package-generator/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/pixpilot-changesets-release/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/license-file/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/update-root-package-json/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/security-policy/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/pixpilot-copilot-instructions/scaffoldfy.json",
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/monorepo-generate-packages-section/scaffoldfy.json"
   ],
   "name": "pnpm-turbo-monorepo-template-setup",
+  "prompts": [
+    {
+      "id": "keepExamplePackages",
+      "type": "confirm",
+      "message": "Keep example packages? (helpful for reference)",
+      "default": false
+    },
+    {
+      "id": "createFirstPackagePrompt",
+      "type": "confirm",
+      "message": "Create the first package now?",
+      "default": true
+    }
+  ],
   "tasks": [
     {
       "id": "clean-readme",
       "name": "Clean README",
       "description": "Create a fresh README for the new project",
-      "type": "template",
+      "type": "write",
       "config": {
         "file": "README.md",
         "templateFile": "./templates/clean-readme.md"
@@ -45,14 +61,6 @@
       "name": "Handle example packages",
       "description": "Prompt user about keeping example packages and remove if not wanted",
       "type": "delete",
-      "prompts": [
-        {
-          "id": "keepExamplePackages",
-          "type": "confirm",
-          "message": "Keep example packages? (helpful for reference)",
-          "default": false
-        }
-      ],
       "config": {
         "condition": "!keepExamplePackages",
         "paths": ["packages/example-package"]
@@ -84,14 +92,6 @@
       "name": "Create first package",
       "description": "Generate the first package in the monorepo using the package generator",
       "type": "exec",
-      "prompts": [
-        {
-          "id": "createFirstPackagePrompt",
-          "type": "confirm",
-          "message": "Create the first package now?",
-          "default": true
-        }
-      ],
       "config": {
         "command": "pnpm run turbo:gen:init",
         "condition": "createFirstPackagePrompt"
