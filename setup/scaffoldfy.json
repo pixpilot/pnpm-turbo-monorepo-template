@@ -73,7 +73,7 @@
       "type": "regex-replace",
       "config": {
         "file": "package.json",
-        "pattern": "\\n\\s*\"setup\":\\s*\"npx @pixpilot/scaffoldfy --tasks-file \\./setup/setup-tasks\\.json\",",
+        "pattern": "\\n\\s*\"setup\":\\s*\"npx @pixpilot/scaffoldfy --config \\./setup/scaffoldfy\\.json\",",
         "flags": "",
         "replacement": ""
       }
