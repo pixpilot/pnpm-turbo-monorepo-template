@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/tasks.schema.json",
+  "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/scaffoldfy.schema.json",
   "extends": [
     "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/project-info/scaffoldfy.json",
     "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/pixpilot-info/scaffoldfy.json",
