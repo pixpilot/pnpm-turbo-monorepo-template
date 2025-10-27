@@ -34,7 +34,7 @@
       "type": "write",
       "config": {
         "file": "README.md",
-        "templateFile": "./templates/clean-readme.md"
+        "templateFile": "./templates/clean-readme.hbs"
       }
     },
     {
