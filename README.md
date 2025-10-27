@@ -18,15 +18,11 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
    ```sh
    pnpm run setup
    ```
-2. Install dependencies:
-   ```sh
-   pnpm install
-   ```
-3. Build all packages:
+2. Build all packages:
    ```sh
    pnpm build
    ```
-4. Run tests:
+3. Run tests:
    ```sh
    pnpm test
    ```
