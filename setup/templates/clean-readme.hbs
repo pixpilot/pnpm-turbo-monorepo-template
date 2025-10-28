@@ -1,4 +1,4 @@
-# {{repoName}}
+# {{projectName}}
 
 > A modern TypeScript monorepo managed with pnpm and TurboRepo.
 
