@@ -1,4 +1,4 @@
-# Contributing to pnpm-turbo-monorepo-template
+# Contributing to <projectName>
 
 Thank you for your interest in contributing! 🎉
 
