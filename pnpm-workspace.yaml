@@ -11,6 +11,6 @@ catalogs:
     eslint: ^9.38.0
     glob: ^11.0.3
     prettier: ^3.6.2
-    tsdown: ^0.15.8
+    tsdown: ^0.15.11
     typescript: ^5.9.3
     vitest: ^3.2.4
