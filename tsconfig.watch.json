@@ -1,8 +1,9 @@
 {
   "extends": "./tooling/typescript/base.json",
   "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
-
     "allowJs": false,
     "checkJs": false,
     "strict": true,
