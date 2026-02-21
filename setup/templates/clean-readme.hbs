@@ -30,7 +30,7 @@ pnpm format
 Generate a new package in the monorepo:
 
 ```sh
-pnpm run turbo:gen:init
+pnpm run gen:package
 ```
 
 ## 📦 Packages
