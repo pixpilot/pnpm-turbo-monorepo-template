@@ -89,7 +89,7 @@
       "description": "Generate the first package in the monorepo using the package generator",
       "type": "exec",
       "config": {
-        "command": "pnpm run turbo:gen:init",
+        "command": "pnpm run gen:package",
         "condition": "createFirstPackagePrompt"
       }
     },
