@@ -59,7 +59,6 @@ coverage/
 # -----------------------------
 .eslintcache
 .stylelintcache
-lint-output*
 
 # -----------------------------
 # Package Manager Caches
