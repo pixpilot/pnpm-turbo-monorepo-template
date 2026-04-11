@@ -55,10 +55,11 @@ coverage/
 *.tsbuildinfo
 
 # -----------------------------
-# Lint/Format Caches
+# Lint/Format
 # -----------------------------
 .eslintcache
 .stylelintcache
+lint-output*
 
 # -----------------------------
 # Package Manager Caches
