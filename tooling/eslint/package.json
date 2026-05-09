@@ -15,8 +15,8 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
-    "@pixpilot/eslint-config": "^2.8.0",
-    "typescript-eslint": "^8.46.1"
+    "@pixpilot/eslint-config": "^2.10.0",
+    "typescript-eslint": "^8.59.2"
   },
   "devDependencies": {
     "@internal/prettier-config": "workspace:*",

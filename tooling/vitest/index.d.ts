@@ -1,5 +1,5 @@
-import type { UserConfig } from 'vitest/config';
+import type { ViteUserConfig } from 'vitest/config';
 
-declare const config: UserConfig;
+declare const config: ViteUserConfig;
 
 export default config;

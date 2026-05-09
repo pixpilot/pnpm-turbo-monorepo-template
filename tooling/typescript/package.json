@@ -17,6 +17,7 @@
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
     "eslint": "catalog:dev",
+    "prettier": "catalog:dev",
     "typescript": "catalog:dev"
   }
 }

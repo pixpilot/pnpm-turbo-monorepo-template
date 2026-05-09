@@ -2,7 +2,7 @@
   "name": "example-package",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.33.4",
   "author": "",
   "license": "MIT",
   "keywords": [],
@@ -44,6 +44,8 @@
     "@internal/tsdown-config": "workspace:*",
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev"
+    "@types/node": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "unrun": "catalog:dev"
   }
 }
