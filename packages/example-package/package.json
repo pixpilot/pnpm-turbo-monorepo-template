@@ -45,7 +45,6 @@
     "@internal/vitest-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@types/node": "catalog:dev",
-    "tsdown": "catalog:dev",
-    "unrun": "catalog:dev"
+    "tsdown": "catalog:dev"
   }
 }
