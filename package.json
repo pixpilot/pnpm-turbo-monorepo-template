@@ -7,7 +7,7 @@
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "setup": "npx @pixpilot/scaffoldfy --config https://unpkg.com/@pixpilot/scaffoldfy-configs/workspace-initializer/scaffoldfy.json",
+    "setup": "npx @pixpilot/scaffoldfy --config https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/workspace-initializer/scaffoldfy.json",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
     "build": "turbo run build",
