@@ -29,7 +29,7 @@
     "clean:all": "pnpm clean && git clean -xdf node_modules",
     "build": "tsdown",
     "build:watch": "tsdown --watch",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
