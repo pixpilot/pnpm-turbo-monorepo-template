@@ -22,20 +22,22 @@
     {
       "id": "remove-setup-guard",
       "name": "Remove setup guard",
-      "description": "Strip the setup gate from package.json, .husky/pre-commit and README.md",
+      "description": "Strip the setup gate from package.json, .husky/pre-commit and README.md, then delete the setup/ folder",
       "type": "exec",
       "config": {
         "command": "node setup/cleanup.mjs"
       }
     },
     {
-      "id": "remove-setup-folder",
-      "name": "Remove setup folder",
-      "description": "Delete this config and the guard scripts now that the gate is gone",
-      "type": "delete",
+      "id": "create-first-package",
+      "name": "Create first package",
+      "description": "Redeclared so cleanup runs BEFORE it: the CLI runs configs in sequential mode, where the last task with a given id wins. required:false keeps a generator failure from stranding the cleanup.",
+      "type": "exec",
+      "required": false,
       "dependencies": ["remove-setup-guard"],
       "config": {
-        "paths": ["setup"]
+        "command": "pnpm run gen:package",
+        "condition": "createFirstPackagePrompt"
       }
     },
     {
@@ -44,7 +46,7 @@
       "description": "Run after cleanup so the removed postinstall guard is not re-triggered",
       "type": "exec",
       "override": "merge",
-      "dependencies": ["remove-setup-folder"],
+      "dependencies": ["remove-setup-guard"],
       "config": {
         "command": "pnpm install"
       }
