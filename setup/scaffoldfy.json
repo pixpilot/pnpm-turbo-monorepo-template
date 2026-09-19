@@ -1,15 +1,16 @@
 {
   "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/scaffoldfy.schema.json",
   "extends": [
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/setup-guard/scaffoldfy.json",
     "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/workspace-initializer/scaffoldfy.json"
   ],
   "name": "pnpm-turbo-monorepo-template-setup-local",
-  "description": "Runs the shared workspace-initializer, then removes this repo's one-time setup gate (setup/guard.mjs and its call sites) so nothing template-specific survives into the generated project.",
+  "description": "Runs the shared setup-guard strip, then the shared workspace-initializer, and finally deletes the local setup/ folder.",
   "tasks": [
     {
       "id": "remove-setup-script",
       "name": "Remove setup script (handled locally)",
-      "description": "Disabled: the shared task targets the old inline unpkg command. scripts.setup is removed JSON-side by remove-setup-guard instead. The config below is a never-matching no-op, present only because the schema requires it.",
+      "description": "Disabled: the shared task targets the old inline unpkg command and can no longer match. scripts.setup is removed JSON-side by the shared setup-guard config. The config below is a never-matching no-op, present only because the schema requires it.",
       "type": "regex-replace",
       "enabled": false,
       "override": "merge",
@@ -20,35 +21,12 @@
       }
     },
     {
-      "id": "remove-setup-guard",
-      "name": "Remove setup guard",
-      "description": "Strip the setup gate from package.json, .husky/pre-commit and README.md, then delete the setup/ folder",
-      "type": "exec",
+      "id": "delete-setup-folder",
+      "name": "Delete setup folder",
+      "description": "Remove the guard and this config now that setup-guard has stripped every reference to them",
+      "type": "delete",
       "config": {
-        "command": "node setup/cleanup.mjs"
-      }
-    },
-    {
-      "id": "create-first-package",
-      "name": "Create first package",
-      "description": "Redeclared so cleanup runs BEFORE it: the CLI runs configs in sequential mode, where the last task with a given id wins. required:false keeps a generator failure from stranding the cleanup.",
-      "type": "exec",
-      "required": false,
-      "dependencies": ["remove-setup-guard"],
-      "config": {
-        "command": "pnpm run gen:package",
-        "condition": "createFirstPackagePrompt"
-      }
-    },
-    {
-      "id": "reinstall-dependencies",
-      "name": "Reinstall dependencies",
-      "description": "Run after cleanup so the removed postinstall guard is not re-triggered",
-      "type": "exec",
-      "override": "merge",
-      "dependencies": ["remove-setup-guard"],
-      "config": {
-        "command": "pnpm install"
+        "paths": ["setup"]
       }
     }
   ]
