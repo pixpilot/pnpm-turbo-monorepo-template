@@ -1,0 +1,53 @@
+{
+  "$schema": "https://unpkg.com/@pixpilot/scaffoldfy@latest/schema/scaffoldfy.schema.json",
+  "extends": [
+    "https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/workspace-initializer/scaffoldfy.json"
+  ],
+  "name": "pnpm-turbo-monorepo-template-setup-local",
+  "description": "Runs the shared workspace-initializer, then removes this repo's one-time setup gate (setup/guard.mjs and its call sites) so nothing template-specific survives into the generated project.",
+  "tasks": [
+    {
+      "id": "remove-setup-script",
+      "name": "Remove setup script (handled locally)",
+      "description": "Disabled: the shared task targets the old inline unpkg command. scripts.setup is removed JSON-side by remove-setup-guard instead. The config below is a never-matching no-op, present only because the schema requires it.",
+      "type": "regex-replace",
+      "enabled": false,
+      "override": "merge",
+      "config": {
+        "file": "package.json",
+        "pattern": "(?!)",
+        "replacement": ""
+      }
+    },
+    {
+      "id": "remove-setup-guard",
+      "name": "Remove setup guard",
+      "description": "Strip the setup gate from package.json, .husky/pre-commit and README.md",
+      "type": "exec",
+      "config": {
+        "command": "node setup/cleanup.mjs"
+      }
+    },
+    {
+      "id": "remove-setup-folder",
+      "name": "Remove setup folder",
+      "description": "Delete this config and the guard scripts now that the gate is gone",
+      "type": "delete",
+      "dependencies": ["remove-setup-guard"],
+      "config": {
+        "paths": ["setup"]
+      }
+    },
+    {
+      "id": "reinstall-dependencies",
+      "name": "Reinstall dependencies",
+      "description": "Run after cleanup so the removed postinstall guard is not re-triggered",
+      "type": "exec",
+      "override": "merge",
+      "dependencies": ["remove-setup-folder"],
+      "config": {
+        "command": "pnpm install"
+      }
+    }
+  ]
+}

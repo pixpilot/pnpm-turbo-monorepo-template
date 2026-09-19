@@ -7,7 +7,7 @@
     "pnpm": ">=9.6.0"
   },
   "scripts": {
-    "setup": "npx @pixpilot/scaffoldfy@latest --config https://unpkg.com/@pixpilot/scaffoldfy-configs@latest/workspace-initializer/scaffoldfy.json",
+    "setup": "npx @pixpilot/scaffoldfy@latest --config ./setup/scaffoldfy.json",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm",
     "build": "turbo run build",
@@ -20,7 +20,7 @@
     "lint:root:fix": "pnpm lint:root --fix",
     "lint:ws": "pnpm dlx sherif@latest",
     "fix:all": "pnpm format:fix && pnpm lint:fix && pnpm typecheck",
-    "postinstall": "pnpm lint:ws",
+    "postinstall": "pnpm lint:ws && node setup/guard.mjs warn",
     "test": "turbo run test",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",

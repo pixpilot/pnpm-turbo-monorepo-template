@@ -15,9 +15,16 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 ## 🚀 Getting Started
 
 1. Run setup after cloning:
+
    ```sh
    pnpm run setup
    ```
+
+   This is a one-time step. Until it has run, `pnpm install` prints a reminder and
+   `git commit` is blocked. Setup ends by deleting the `setup/` folder, so the gate
+   removes itself. It is skipped in CI, in this template repo itself, and with
+   `SKIP_SETUP_CHECK=1`.
+
 2. Build all packages:
    ```sh
    pnpm build
