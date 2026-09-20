@@ -5,5 +5,5 @@
 
 import baseConfig from './tooling/eslint/base.js';
 
-/** @type {import('typescript-eslint').Config} */
+/** @type {import('eslint').Linter.Config[]} */
 export default baseConfig;
