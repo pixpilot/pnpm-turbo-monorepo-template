@@ -21,6 +21,17 @@
       }
     },
     {
+      "id": "remove-pre-commit-setup-guard",
+      "name": "Remove pre-commit setup guard",
+      "description": "Remove the one-time setup guard from Husky after workspace initialization completes",
+      "type": "regex-replace",
+      "config": {
+        "file": ".husky/pre-commit",
+        "pattern": "\\n# Block commits until the one-time workspace initializer has been run\\.\\nnode setup/guard\\.mjs block \\|\\| exit 1\\n",
+        "replacement": ""
+      }
+    },
+    {
       "id": "delete-setup-folder",
       "name": "Delete setup folder",
       "description": "Remove the guard and this config now that setup-guard has stripped every reference to them",
