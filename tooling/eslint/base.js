@@ -5,7 +5,7 @@ import makeConfig from '@pixpilot/eslint-config';
  */
 // eslint-disable-next-line antfu/no-top-level-await
 const baseConfig = await makeConfig({
-  pnpm: false,
+  pnpm: true,
   turbo: true,
 });
 
