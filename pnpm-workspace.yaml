@@ -7,9 +7,9 @@ catalogs:
     '@changesets/cli': ^2.31.1
     '@commitlint/cli': ^21.2.2
     '@commitlint/config-conventional': ^21.2.2
-    '@pixpilot/dev-config': ^3.22.0
+    '@pixpilot/dev-config': ^3.22.1
     '@pixpilot/eslint-config': ^3.0.0
-    '@pixpilot/tsdown-config': ^0.6.0
+    '@pixpilot/tsdown-config': ^0.8.3
     '@pixpilot/workspace-package-generator': ^2.1.2
     '@turbo/gen': ^2.11.2
     '@types/node': ^26.6.2
