@@ -39,7 +39,6 @@
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/dev-config": "catalog:dev",
     "@pixpilot/workspace-package-generator": "catalog:dev",
-    "@turbo/gen": "catalog:dev",
     "@types/node": "catalog:dev",
     "@vitest/coverage-v8": "catalog:dev",
     "@vitest/ui": "catalog:dev",
