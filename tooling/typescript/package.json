@@ -10,7 +10,8 @@
     "*.json"
   ],
   "scripts": {
-    "lint": "eslint . --ext .ts,.js,.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
