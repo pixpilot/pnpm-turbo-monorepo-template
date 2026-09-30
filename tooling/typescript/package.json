@@ -14,10 +14,10 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "devDependencies": {
-    "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev",
-    "eslint": "catalog:dev",
-    "prettier": "catalog:dev",
-    "typescript": "catalog:dev"
+    "@pixpilot/dev-config": "catalog:pixpilot",
+    "@types/node": "catalog:tooling",
+    "eslint": "catalog:tooling",
+    "prettier": "catalog:tooling",
+    "typescript": "catalog:tooling"
   }
 }

@@ -5,6 +5,6 @@
   "main": "index.js",
   "devDependencies": {
     "@internal/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:dev"
+    "@pixpilot/dev-config": "catalog:pixpilot"
   }
 }

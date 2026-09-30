@@ -43,8 +43,8 @@
     "@internal/tsconfig": "workspace:*",
     "@internal/tsdown-config": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev",
-    "tsdown": "catalog:dev"
+    "@pixpilot/dev-config": "catalog:pixpilot",
+    "@types/node": "catalog:tooling",
+    "tsdown": "catalog:tooling"
   }
 }

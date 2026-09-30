@@ -16,16 +16,16 @@
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
   "dependencies": {
-    "@pixpilot/tsdown-config": "catalog:dev",
-    "tsdown": "catalog:dev"
+    "@pixpilot/tsdown-config": "catalog:pixpilot",
+    "tsdown": "catalog:tooling"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:dev",
-    "@types/node": "catalog:dev",
-    "glob": "catalog:dev",
-    "typescript": "catalog:dev"
+    "@pixpilot/dev-config": "catalog:pixpilot",
+    "@types/node": "catalog:tooling",
+    "glob": "catalog:tooling",
+    "typescript": "catalog:tooling"
   },
   "prettier": "@internal/prettier-config"
 }
