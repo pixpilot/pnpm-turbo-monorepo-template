@@ -10,7 +10,6 @@
     "*.json"
   ],
   "scripts": {
-    "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
   },
