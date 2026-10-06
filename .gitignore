@@ -82,10 +82,13 @@ pnpm-debug.log*
 # -----------------------------
 .env
 .env.*
+!.env.example
 packages/**/.env
 packages/**/.env.*
+!packages/**/.env.example
 tooling/**/.env
 tooling/**/.env.*
+!tooling/**/.env.example
 
 # -----------------------------
 # Parcel/Next/Nuxt/Gatsby/Vuepress
