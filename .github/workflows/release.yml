@@ -43,14 +43,25 @@ jobs:
           provenance: 'true'
           REGISTRY_TOKEN: ${{ secrets.NPM_TOKEN }}
 # ======================================================================
-# If your branch is protected, remove the steps above and use this one instead.
-# Additional setup:
-# - See the following gist for detailed instructions:
-#   https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc
-# - You must set up a GitHub App and add the following repository secrets:
-#     RELEASER_ID:            The App ID of your GitHub App
-#     RELEASER_PRIVATE_KEY:   The private key for your GitHub App
-#     NPM_TOKEN:              Your npm publish token
+# Optional GitHub App setup for protected branches
+# Replace only the release job's steps with the commented steps below.
+#
+# Quick setup (locally from repo root; requires Node.js 24.15+ and gh):
+# 1. Run: gh auth login
+# 2. Create/Edit .github/releaser.json with your organization URL and a unique app name.
+# 3. Replace VERSION with a published CLI version and OWNER/REPO, then run:
+#    npx @pixpilot/github-app@VERSION create releaser --manifest .github/releaser.json --repo OWNER/REPO
+# 4. Confirm creation and install the app on your repository in the browser.
+# 5. Add NPM_TOKEN separately; allow the app's branch/ruleset bypass if required.
+#
+# CLI sets RELEASER_ID and RELEASER_PRIVATE_KEY (replaces existing); no local PEM.
+# Details: https://github.com/pixpilot/github-tools/tree/main/packages/github-app
+#
+# Manual setup (or existing app):
+# https://gist.github.com/0xernesto/a8065cce55940e6ccc523664a87ee9bc
+# In GitHub App settings > Private keys, select Generate a private key.
+# Add the full downloaded PEM contents as repository Actions secret RELEASER_PRIVATE_KEY.
+# Set RELEASER_ID to the App ID and NPM_TOKEN to your npm publish token.
 # ======================================================================
 # steps:
 #   - name: Generate bot app token
@@ -76,4 +87,5 @@ jobs:
 #     uses: pixpilot/changesets-autopilot@v1
 #     with:
 #       GITHUB_TOKEN: ${{ steps.app_token.outputs.token }}
+#       provenance: 'true'
 #       REGISTRY_TOKEN: ${{ secrets.NPM_TOKEN }}
