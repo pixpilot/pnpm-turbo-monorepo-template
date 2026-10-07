@@ -12,7 +12,6 @@ jspm_packages/
 # -----------------------------
 dist/
 build/
-lib/
 out/
 build/Release
 packages/**/dist/
