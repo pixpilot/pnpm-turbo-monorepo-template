@@ -19,10 +19,11 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    name: JavaScript Tests
+    # The organization's ruleset requires a check named `ci`.
+    name: ci
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup project
         uses: pixpilot/github-actions/setup-pnpm-project@v1
