@@ -54,6 +54,16 @@ A modern TypeScript monorepo template for npm packages, managed with pnpm and Tu
 
 In this template, we use `@pixpilot` as a placeholder for package names. As a user, you might want to replace it with your own organization or project name.
 
+## 🔒 Dependency updates
+
+New package versions wait before they are installed, so a hijacked release is likely pulled first:
+
+- pnpm installs a version only once it is a day old (`minimumReleaseAge` in `pnpm-workspace.yaml`).
+- Dependabot opens version updates after a week (`cooldown` in `.github/dependabot.yml`). Security updates do not wait.
+- `@pixpilot` packages and actions are exempt from both.
+
+To take a version now, add it to `minimumReleaseAgeExclude`, e.g. `- next@16.2.1`, then run `pnpm up next@16.2.1`.
+
 ## 🚢 Releases
 
 ### 🤖 Automated Release (Recommended)

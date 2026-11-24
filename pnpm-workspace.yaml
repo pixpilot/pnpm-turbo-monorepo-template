@@ -42,3 +42,11 @@ overrides:
   '@types/node': catalog:typescript
 catalog:
   eslint-plugin-turbo: ^2.11.10
+
+# A new version installs only once it is a day old: hijacked releases are
+# usually found and pulled within hours. Our own packages install at once. To
+# take one version sooner, add it here, e.g. `next@16.2.1`.
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - '@pixpilot/*'
+  - '@pixpilot-private/*'

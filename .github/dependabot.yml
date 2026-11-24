@@ -4,6 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # New versions wait a week; security updates and our own actions do not.
+    cooldown:
+      default-days: 7
+      exclude:
+        - pixpilot/*
     groups:
       actions-minor:
         update-types:
@@ -14,6 +19,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # New versions wait a week; security updates and our own packages do not.
+    cooldown:
+      default-days: 7
+      exclude:
+        - '@pixpilot/*'
+        - '@pixpilot-private/*'
     groups:
       npm-development:
         dependency-type: development
